@@ -1,0 +1,17 @@
+width=700
+height=400
+location=center
+show=drun
+prompt=Apps
+allow_markup=true
+allow_images=true
+image_size=24
+columns=1
+normal_window=true
+layer=overlay
+term=kitty
+hide_search=false
+print_command=true
+insensitive=true
+parse_search=true
+gtk_dark=true 

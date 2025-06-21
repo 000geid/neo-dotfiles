@@ -4,7 +4,7 @@
   "spacing": 4,
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "clock", "tray"],
+  "modules-right": ["pulseaudio", "network", "backlight", "cpu", "memory", "battery", "clock", "tray"],
   "sway/submap": {
     "format": "<span style=\"italic\">{}</span>"
   },
@@ -36,41 +36,41 @@
     }
   },
   "tray": { "spacing": 10 },
-  "clock": {
-    "format": "{:%H:%M}",
-    "format-alt": "{:%Y-%m-%d}"
-  },
-  "cpu": {
-    "format": "{usage}%",
-    "tooltip": false
-  },
-  "memory": {
-    "format": "{}%"
-  },
+      "clock": {
+        "format": "🕐 {:%H:%M}",
+        "format-alt": "📅 {:%Y-%m-%d}"
+    },
+      "cpu": {
+        "format": "💻 {usage}%",
+        "tooltip": false
+    },
+      "memory": {
+        "format": "🧠 {}%"
+    },
   "temperature": {
     "critical-threshold": 80,
     "format": "{temperatureC}°C {icon}",
     "format-icons": ["\uf2cb", "\uf2c9", "\uf2ca"]
   },
   "backlight": {
-    "format": "{icon} {percent}%",
-    "format-icons": {
-      "0": "\uf111",
-      "25": "\uf185",
-      "50": "\uf185",
-      "75": "\uf185",
-      "100": "\uf185"
-    }
+    "device": "intel_backlight",
+    "format": "🔆 {percent}%",
+    "format-alt": "💡 {percent}%",
+    "on-scroll-up": "brightnessctl set 5%+",
+    "on-scroll-down": "brightnessctl set 5%-",
+    "min-length": 6,
+    "tooltip": true,
+    "tooltip-format": "Brightness: {percent}%"
   },
-  "battery": {
-    "states": {
-      "warning": 30,
-      "critical": 15
-    },
-    "format": "{capacity}%",
-    "format-charging": "{capacity}%",
-    "format-plugged": "{capacity}%",
-    "format-alt": "{time}",
+      "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "🔋 {capacity}%",
+        "format-charging": "⚡ {capacity}%",
+        "format-plugged": "🔌 {capacity}%",
+        "format-alt": "⏱️ {time}",
     "format-icons": {
       "100": "\uf240",
       "80": "\uf241",
@@ -79,21 +79,21 @@
       "20": "\uf244"
     }
   },
-  "network": {
-    "format-wifi": "{essid} ({signalStrength}%)",
-    "format-ethernet": "{ipaddr}/{cidr}",
-    "tooltip-format": "{ifname} via {gwaddr}",
-    "format-linked": "{ifname} (No IP)",
-    "format-disconnected": "Disconnected"
-  },
-  "pulseaudio": {
-    "format": "{volume}%",
-    "format-bluetooth": "{volume}%",
-    "format-bluetooth-muted": " {format_source}",
-    "format-muted": " {format_source}",
-    "format-source": "{volume}%",
-    "format-source-muted": "",
-    "on-click": "pavucontrol",
+      "network": {
+        "format-wifi": "📶 {essid} ({signalStrength}%)",
+        "format-ethernet": "🌐 {ipaddr}/{cidr}",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "format-linked": "🔗 {ifname} (No IP)",
+        "format-disconnected": "❌ Disconnected"
+    },
+      "pulseaudio": {
+        "format": "🔊 {volume}%",
+        "format-bluetooth": "🎧 {volume}%",
+        "format-bluetooth-muted": "🎧🔇 {format_source}",
+        "format-muted": "🔇 {format_source}",
+        "format-source": "🎤 {volume}%",
+        "format-source-muted": "🎤🔇",
+        "on-click": "pavucontrol",
     "format-icons": {
       "0": "\uf6a9",
       "30": "\uf027",

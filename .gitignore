@@ -1,0 +1,45 @@
+# Browser data and sensitive info
+BraveSoftware/
+google-chrome/
+Code/
+Cursor/
+
+# Large application directories  
+JetBrains/
+RStudio/
+obs-studio/
+libreoffice/
+
+# System and temporary files
+dconf/
+pulse/
+systemd/
+monitors.xml*
+*.db
+*.ini
+
+# App specific configs we don't need to track
+autostart/
+configstore/
+evolution/
+gnome-*/
+gtk-3.0/
+ibus/
+mimeapps.list
+user-dirs.*
+xdg-terminals.list
+
+# Development tools we manage separately
+nvim/
+gh/
+go/
+
+# Misc directories
+.wrangler/
+cef_user_data/
+connections.db
+enchant/
+images-desktop/
+menus/
+*.conf
+*.settings-ported 

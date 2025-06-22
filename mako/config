@@ -1,0 +1,94 @@
+# 🌟 GORGEOUS Mako notification config ✨
+# Monitor configuration - notifications on primary monitor (eDP-1)
+output=eDP-1
+
+# Position and layout - perfectly placed beauty
+anchor=top-right
+margin=15,15,15,15
+padding=20,15,20,15
+width=380
+height=110
+
+# Typography - elegant and readable
+font=SF Pro Display 12
+text-color=#eceff4
+format=<b>%s</b>\n%b
+
+# Stunning background and border styling
+background-color=#2e3440f0
+border-color=#88c0d0
+border-size=1
+border-radius=12
+
+# Icon configuration - gorgeous icons
+icons=1
+max-icon-size=64
+icon-location=left
+
+# Behavior - smooth and intuitive
+max-visible=4
+sort=-time
+layer=overlay
+default-timeout=6000
+ignore-timeout=0
+group-by=app-name
+
+# Enhanced markup and effects
+markup=1
+actions=1
+history=1
+text-alignment=left
+max-history=20
+
+# Gorgeous progress bar styling
+progress-color=over #88c0d0aa
+
+# Beautiful interaction
+on-button-left=dismiss
+on-button-middle=none
+on-button-right=dismiss-all
+on-touch=dismiss
+
+# 🚨 Critical notifications - URGENT styling
+[urgency=critical]
+border-color=#bf616a
+background-color=#bf616af0
+text-color=#ffffff
+border-size=4
+default-timeout=0
+format=<b>🚨 %s</b>\n%b
+
+# ⚠️ High priority notifications
+[urgency=high]
+border-color=#d08770
+background-color=#d08770f0
+text-color=#2e3440
+border-size=3
+default-timeout=8000
+format=<b>⚠️ %s</b>\n%b
+
+# 📝 Low priority notifications - subtle beauty
+[urgency=low]
+border-color=#5e81ac
+background-color=#5e81acf0
+text-color=#eceff4
+border-size=2
+default-timeout=4000
+format=<i>%s</i>\n%b
+
+# 🎨 Application-specific styling - brand colors
+[app-name=firefox]
+border-color=#ff7139
+background-color=#ff7139aa
+
+[app-name=discord]
+border-color=#7289da
+background-color=#7289daaa
+
+[app-name=spotify]
+border-color=#1db954
+background-color=#1db954aa
+
+[app-name=blueman]
+border-color=#0066cc
+background-color=#0066ccaa 

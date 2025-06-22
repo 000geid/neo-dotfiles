@@ -4,7 +4,7 @@
   "spacing": 4,
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["pulseaudio", "network", "backlight", "cpu", "memory", "battery", "clock", "tray"],
+  "modules-right": ["pulseaudio", "network", "bluetooth", "backlight", "cpu", "memory", "temperature", "battery", "clock", "tray"],
   "sway/submap": {
     "format": "<span style=\"italic\">{}</span>"
   },
@@ -49,8 +49,29 @@
     },
   "temperature": {
     "critical-threshold": 80,
-    "format": "{temperatureC}°C {icon}",
-    "format-icons": ["\uf2cb", "\uf2c9", "\uf2ca"]
+    "format": "🌡️ {temperatureC}°C",
+    "format-icons": ["\uf2cb", "\uf2c9", "\uf2ca"],
+    "tooltip": true
+  },
+  "bluetooth": {
+    "format": "{icon} {status}",
+    "format-connected": "{icon} {device_alias}",
+    "format-connected-battery": "{icon} {device_alias} {device_battery_percentage}%",
+    "format-disabled": "{icon}",
+    "format-off": "{icon}",
+    "format-icons": {
+      "enabled": "",
+      "disabled": "",
+      "off": "",
+      "on": "",
+      "connected": "",
+      "disconnected": ""
+    },
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+    "on-click": "blueman-manager"
   },
   "backlight": {
     "device": "intel_backlight",

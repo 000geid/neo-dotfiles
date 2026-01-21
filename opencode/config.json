@@ -1,0 +1,9 @@
+{
+  "plugin": [
+    "@mailshieldai/opencode-canvas"
+  ],
+  "permission": {
+    "canvas_*": "allow"
+  },
+  "$schema": "https://opencode.ai/config.json"
+}

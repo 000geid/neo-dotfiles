@@ -1,3 +1,65 @@
+# 🌟 Neo Dotfiles - Only track relevant configs! 
+
+# ❌ IGNORE: Application data & cache directories
+anyrun/
+fish/
+ClickUp/
+GNOME-xdg-terminals.list
+balena-etcher/
+figma-linux/
+notion-app-enhanced/
+opera/
+github-copilot/
+libvirt/
+rstudio/
+vscode-sqltools/
+eog/
+forge/
+tiling-assistant/
+touchegg/
+astro/
+create-next-app-nodejs/
+nextjs-nodejs/
+netlify/
+jgit/
+ghc/
+lvim/
+uv/
+
+# ❌ IGNORE: System & session files
+gnome-initial-setup-done
+gemini_history.json
+
+# ❌ IGNORE: KDE Connect (device-specific)
+kdeconnect/
+
+# ❌ IGNORE: Solaar (hardware-specific)
+solaar/
+
+# ✅ KEEP: Core window manager & desktop configs
+# hypr/ - Hyprland WM
+# waybar/ - Status bar
+# mako/ - Notifications  
+# wofi/ - App launcher
+# sway/ - Backup WM
+# swaylock/ - Lock screen
+# swaybg/ - Wallpaper management
+
+# ✅ KEEP: Terminal & shell configs
+# kitty/ - Terminal emulator
+# fish/ - Shell configuration
+
+# ✅ KEEP: Editor configs
+# lvim/ - LunarVim
+# init.vim - Neovim
+
+# ✅ KEEP: Theme & customization
+# wal/ - Pywal themes
+# anyrun/ - Alternative launcher
+
+# ✅ KEEP: README and documentation
+# README.md
+
 # Browser data and sensitive info
 BraveSoftware/
 google-chrome/

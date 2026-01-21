@@ -1,10 +1,10 @@
 {
   "position": "bottom",
   "height": 30,
-  "spacing": 4,
-  "modules-left": ["hyprland/workspaces"],
-  "modules-center": ["hyprland/window"],
-  "modules-right": ["pulseaudio", "network", "bluetooth", "backlight", "cpu", "memory", "temperature", "battery", "clock", "tray"],
+  "spacing": 10,
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-center": [" "],
+  "modules-right": ["custom/network", "bluetooth", "backlight", "pulseaudio", "cpu", "memory", "temperature", "battery", "clock", "tray", "custom/power"],
   "sway/submap": {
     "format": "<span style=\"italic\">{}</span>"
   },
@@ -37,19 +37,21 @@
   },
   "tray": { "spacing": 10 },
       "clock": {
-        "format": "🕐 {:%H:%M}",
-        "format-alt": "📅 {:%Y-%m-%d}"
+        "timezone": "America/Argentina/Buenos_Aires",
+        "format": "󰥔  {:%H : %M   󰃭   %d / %m}",
+        "format-alt": "󰃭  {:%A, %B %d, %Y   󰥔  %H:%M:%S}",
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>"
     },
       "cpu": {
-        "format": "💻 {usage}%",
-        "tooltip": false
+        "format": "    {usage}%",
+        "tooltip": true
     },
       "memory": {
-        "format": "🧠 {}%"
+        "format": "󰍛  {percentage}%"
     },
   "temperature": {
     "critical-threshold": 80,
-    "format": "🌡️ {temperatureC}°C",
+    "format": "{icon} {temperatureC}°C",
     "format-icons": ["\uf2cb", "\uf2c9", "\uf2ca"],
     "tooltip": true
   },
@@ -60,12 +62,12 @@
     "format-disabled": "{icon}",
     "format-off": "{icon}",
     "format-icons": {
-      "enabled": "",
-      "disabled": "",
-      "off": "",
-      "on": "",
-      "connected": "",
-      "disconnected": ""
+      "enabled": "󰂯",
+      "disabled": "󰂲",
+      "off": "󰂲",
+      "on": "󰂯",
+      "connected": "󰂱",
+      "disconnected": "󰂲"
     },
     "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
@@ -73,25 +75,26 @@
     "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
     "on-click": "blueman-manager"
   },
-  "backlight": {
-    "device": "intel_backlight",
-    "format": "🔆 {percent}%",
-    "format-alt": "💡 {percent}%",
-    "on-scroll-up": "brightnessctl set 5%+",
-    "on-scroll-down": "brightnessctl set 5%-",
-    "min-length": 6,
-    "tooltip": true,
-    "tooltip-format": "Brightness: {percent}%"
-  },
+      "backlight": {
+      "device": "intel_backlight",
+      "format": "󰃠  {percent}%",
+      "format-alt": "󰃟  {percent}%",
+      "on-scroll-up": "brightnessctl set 5%+",
+      "on-scroll-down": "brightnessctl set 5%-",
+      "min-length": 6,
+      "tooltip": true,
+      "tooltip-format": "Brightness: {percent}%"
+    },
+
       "battery": {
         "states": {
             "warning": 30,
             "critical": 15
         },
-        "format": "🔋 {capacity}%",
-        "format-charging": "⚡ {capacity}%",
-        "format-plugged": "🔌 {capacity}%",
-        "format-alt": "⏱️ {time}",
+        "format": "\uf0e7 {icon} {capacity}%",
+        "format-charging": "\uf0e7 {capacity}%",
+        "format-plugged": "\uf0e7 {capacity}%",
+        "format-alt": " {time}",
     "format-icons": {
       "100": "\uf240",
       "80": "\uf241",
@@ -100,29 +103,31 @@
       "20": "\uf244"
     }
   },
-      "network": {
-        "format-wifi": "📶 {essid} ({signalStrength}%)",
-        "format-ethernet": "🌐 {ipaddr}/{cidr}",
-        "tooltip-format": "{ifname} via {gwaddr}",
-        "format-linked": "🔗 {ifname} (No IP)",
-        "format-disconnected": "❌ Disconnected"
+      "custom/network": {
+        "exec": "$HOME/.config/waybar/network.sh",
+        "interval": 2,
+        "return-type": "json"
     },
       "pulseaudio": {
-        "format": "🔊 {volume}%",
-        "format-bluetooth": "🎧 {volume}%",
-        "format-bluetooth-muted": "🎧🔇 {format_source}",
-        "format-muted": "🔇 {format_source}",
-        "format-source": "🎤 {volume}%",
-        "format-source-muted": "🎤🔇",
+        "format": "{volume}% {icon} 󰋋",
+        "format-bluetooth": "{volume}% {icon} 󰋋 ",
+        "format-bluetooth-muted": "muted 󰝟 󰋋 ",
+        "format-muted": "muted 󰝟 󰋋",
+        "format-source": "{volume}% ",
+        "format-source-muted": "muted ",
+
         "on-click": "pavucontrol",
-    "format-icons": {
-      "0": "\uf6a9",
-      "30": "\uf027",
-      "60": "\uf028",
-      "100": "\uf028",
-      "muted": "\uf6a9"
-    }
+     "format-icons": {
+      "0": "󰕾",
+      "30": "󰖀",
+      "60": "󰕾",
+      "100": "󰕾",
+      "muted": "󰝟"
+    },
+    "tooltip-format": "Output: {desc}\nVolume: {volume}%\nDevice: {icon}",
+    "tooltip-format-bluetooth": "BT Output: {desc}\nVolume: {volume}%\nDevice: {icon}"
   },
+
   "custom/media": {
     "format": " {}",
     "return-type": "json",
@@ -133,18 +138,40 @@
   "hyprland/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
-    "format": "{name}",
+    "format": "{icon} {name}",
+    "format-icons": {
+      "1": " 󰖟 ",
+      "2": " 󰖟 ",
+      "3": " 󰅴 ",
+      "4": " 󰅴 ",
+      "5": "  󰆍 ",
+      "6": "  󰆍 ",
+      "7": " 󰎆 ",
+      "8": " 󰭹 ",
+      "9": " 󰭹 ",
+      "10": " 󰀻 ",
+      "default": " "
+    },
     "persistent_workspaces": {
       "1": [],
       "2": [],
       "3": [],
       "4": [],
-      "5": []
+      "5": [],
+      "6": [],
+      "7": [],
+      "8": [],
+      "9": [],
+      "10": []
     }
   },
   "hyprland/window": {
     "format": "{title}",
     "max-length": 50
+  },
+  "custom/power": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "~/.config/waybar/power-menu.sh"
   }
 }
-

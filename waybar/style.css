@@ -2,7 +2,7 @@
   border: none;
   border-radius: 0;
   font-family: "SF Pro Display", sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   min-height: 0;
 }
 
@@ -43,6 +43,31 @@ window#waybar {
 #network,
 #pulseaudio,
 #tray {
-  padding: 0 10px;
+  padding: 0 12px;
   color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+#cpu,
+#memory,
+#backlight,
+#clock,
+#pulseaudio {
+  font-family: "SF Pro Display", "JetBrainsMono Nerd Font", "FiraCode Nerd Font", sans-serif;
+}
+
+#custom-power {
+  color: #ff6b6b;
+  margin: 0 10px;
+  padding: 0 10px;
+  font-family: "JetBrainsMono Nerd Font", "FiraCode Nerd Font", "SF Pro Display", sans-serif;
+  font-size: 20px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+#custom-power:hover {
+  background-color: #ff6b6b;
+  color: #ffffff;
+  box-shadow: 0 0 8px rgba(255, 107, 107, 0.6);
 }
